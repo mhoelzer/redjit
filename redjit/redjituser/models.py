@@ -8,6 +8,7 @@ class RedjitUser(models.Model):
     https://www.vinta.com.br/blog/2016/controlling-access-a-django-permission-apps-comparison/
     https://www.programcreek.com/python/example/50077/django.contrib.auth.models.Permission"""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    username = models.CharField(max_length=50)
     password = models.CharField(max_length=30)
     # email = models.EmailField(
     #     max_length=70, null=True, blank=True, unique=True)
