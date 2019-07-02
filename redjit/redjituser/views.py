@@ -8,8 +8,6 @@ from django.shortcuts import reverse
 from django.http import HttpResponseRedirect
 
 
-
-
 class SignUp(View):
     def get(self, request):
         form = SignupForm()
