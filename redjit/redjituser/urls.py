@@ -1,5 +1,5 @@
 from django.urls import path
-from reddit.views import SignUp, Login, Logout
+from redjit.redjituser.views import SignUp, Login, Logout
 
 urlpatterns = [
     path('login/', Login.as_view()),
