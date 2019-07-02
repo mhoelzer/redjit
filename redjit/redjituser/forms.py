@@ -1,5 +1,5 @@
 from django import forms
-from models import RedjitUser
+# from models import RedjitUser
 
 
 class SignupForm(forms.Form):

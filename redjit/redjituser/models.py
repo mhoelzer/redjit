@@ -15,7 +15,7 @@ class RedjitUser(models.Model):
         'self', related_name='followed_by', symmetrical=False, blank=True, null=True)
 
     def __str__(self):
-        return self.username
+        return self.user
 
     # permission = models.Permission()
 

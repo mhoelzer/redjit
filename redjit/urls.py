@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from redjit.redjituser.urls import urlpatterns as redjituser_urls
+# from redjit.redjituser.urls import urlpatterns as redjituser_urls
+# from redjit.post.urls import urlpatterns as post_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
-urlpatterns += redjituser_urls
+# urlpatterns += redjituser_urls
+# urlpatterns += post_urls

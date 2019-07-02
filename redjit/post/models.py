@@ -1,18 +1,15 @@
 from django.db import models
-from redjit.redjiter.models import Redjiter
-from redjit.subredjit.models import Subredjit
-
+from redjit.redjituser.models import RedjitUser
 
 
 class Post(models.Model):
-    user = models.ForeignKey(Redjiter, on_delete=models.CASCADE, null=True)
-    subredjit = models.ForeignKey(Subredjit, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(RedjitUser, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=150)
     body = models.CharField(max_length=500)
     date_created = models.DateTimeField(auto_now_add=True)
     url = models.URLField(max_length=200)
-    upvotes = models.ManyToManyField(Redjiter, related_name='upvotes', blank=True)
-    downvotes = models.ManyToManyField(Redjiter, related_name='downvotes', blank=True)
+    upvotes = models.IntegerField(default=0)
+    downvotes = models.IntegerField(default=0)
 
     def get_score(self):
-        return self.upvotes.count() = self.downvotes.count()
+        return self.upvotes - self.downvotes

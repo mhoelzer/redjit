@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, 
+from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
 from .forms import PostForm
 from .models import Post
@@ -6,7 +6,6 @@ from .helper import toggle_comment_upvotes, sort_comments
 from django.views import View
 from redjit.comment.forms import CommentForm
 from redjit.comment.models import Comment
-
 
 
 class MyPost(View):
@@ -22,6 +21,7 @@ class MyPost(View):
             return HttpResponseRedirect(reverse('register'))
         form = self.form_class()
         return render(request, './post/newpost.html', {'form': form})
+
 
 class PostView(View):
     form_class = CommentForm
@@ -46,4 +46,4 @@ class PostView(View):
                 post=Post.objects.get(id=post_id)
             )
         return HttpResponseRedirect(reverse('post', kwargs={'subredjit': subredjit,
-                                    'post_id': post_id}))
+                                                            'post_id': post_id}))
