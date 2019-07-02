@@ -27,7 +27,6 @@ class SignUp(View):
                 # django 'User' built-in model
                 user = User.objects.create_user(
                     username=data['username'],
-                    email=data['email'],
                     password=data['password'],
                 )
                 user.save()
@@ -68,7 +67,7 @@ class Logout(View):
         return HttpResponseRedirect(reverse("homepage"))
 
 
-@method_decorator(login_required, name='dispatch')
-class Homepage(View):
-    def get(self, request):
-        html = 'homepage.html'
+# @method_decorator(login_required, name='dispatch')
+# class Homepage(View):
+#     def get(self, request):
+#         html = 'homepage.html'
